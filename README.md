@@ -9,7 +9,7 @@ The model utilizes a **Graph Convolutional Network (GCN)** formulated as an **an
 ```text
 gnn-cvd-risk/
 ├── data/
-│   └── dataset.csv          # [Place your private data here]
+│   └── dataset.csv          # [ Create this folder and place your private data here]
 ├── src/
 │   ├── dataset.py           # Graph construction & Distance metric 
 │   ├── model.py             # Two-layer GCN 
