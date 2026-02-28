@@ -11,11 +11,12 @@ gnn-cvd-risk/
 ├── data/
 │   └── dataset.csv          # [ Create this folder and place your private data here]
 ├── src/
-│   ├── dataset.py           # Graph construction & Distance metric 
-│   ├── model.py             # Two-layer GCN 
-│   ├── loss.py              # Hypersphere + Differential AUC Loss 
-│   ├── utils.py             # Probability calibration  & Metrics
-│   └── interpretability.py  # RuleFit Surrogate Model wrapper
+│   ├── dataset.py              # Graph construction & Distance metric 
+│   ├── model.py                # Two-layer GCN 
+│   ├── loss.py                 # Hypersphere + Differential AUC Loss 
+│   ├── utils.py                # Probability calibration  & Metrics
+│   └── interpretability.py     # RuleFit Surrogate Model wrapper
+|   └── generate_dummy_data.py  # Dummy data generation
 ├── main.py                  # Entry point: Data loading, Training, Evaluation
 ├── requirements.txt         # Dependencies
 └── README.md                # This file
@@ -48,6 +49,14 @@ Since the dataset is private, this repository is designed to be **data-agnostic*
      - `0`: Normal / Control (Non-CVD)
      - `1`: Anomaly / Case (CVD)
    - **Missing Values:** The current implementation assumes no missing values (impute them before running).
+
+## Testing with Dummy Data
+
+If you do not have access to a private medical dataset but want to test the methodology, we provide a script to generate a synthetic dataset. This synthetic data statistically mirrors the population described in the original paper (N=560, ~7% CVD prevalence, matching feature distributions).
+
+1. **Generate the data:**
+   ```bash
+   python generate_dummy_data.py
 
 ### Feature Auto-Detection
 The script `main.py` currently uses a heuristic to distinguish categorical from continuous variables:
